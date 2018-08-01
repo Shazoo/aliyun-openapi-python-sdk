@@ -10,4 +10,6 @@ class DescribeAccountAttributesRequest(RpcRequest):
     def set_ZoneId(self,ZoneId):
         self.add_query_param('ZoneId',ZoneId)
 
-    
+    def set_AttributeNames(self, name_list):
+        for N, name in enumerate(name_list):
+            self.add_query_param('AttributeName.{}'.format(N+1), name)
